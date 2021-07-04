@@ -1,16 +1,11 @@
-import { useState } from "react";
 import { AuthContext } from "../context";
-
-const initialState = {
-  isAuthenticated: false,
-  user: {},
-};
+import { authReducer } from "../reducers";
 
 const AuthProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+  const [state, dispatch] = authReducer();
 
   return (
-    <AuthContext.Provider value={{ state, setState }}>
+    <AuthContext.Provider value={{ state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );

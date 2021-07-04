@@ -1,0 +1,6 @@
+const ACTIONS = {
+  SET_USER: "SET_USER",
+  SET_AUTHENTICATED: "SET_AUTHENTICATED",
+};
+
+export default ACTIONS;

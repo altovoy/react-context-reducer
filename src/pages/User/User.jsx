@@ -1,7 +1,7 @@
 import { useAuth } from "../../hooks";
 
 const UserPage = () => {
-  const { state, setState } = useAuth();
+  const { state } = useAuth();
   const { name, email } = state.user;
   return (
     <div>

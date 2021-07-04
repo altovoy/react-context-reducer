@@ -7,7 +7,7 @@ const initialState = {
 
 const AuthContext = createContext({
   state: initialState,
-  setState: () => {},
+  dispatch: () => {},
 });
 
 export default AuthContext;

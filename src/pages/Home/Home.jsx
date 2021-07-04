@@ -1,20 +1,22 @@
 import { useAuth } from "../../hooks";
+import ACTIONS from "../../actions";
 
 function HomePage() {
-  const { state, setState } = useAuth();
+  const { state, dispatch } = useAuth();
   const handleLogin = (e) => {
     e.preventDefault();
-    setState((state) => {
-      let { isAuthenticated } = state;
-      isAuthenticated = !isAuthenticated;
-      const user = isAuthenticated
-        ? { name: "Dummy Name", email: "dummy@email.com" }
-        : {};
-      return {
-        ...state,
-        isAuthenticated,
-        user,
-      };
+    let { isAuthenticated } = state;
+    isAuthenticated = !isAuthenticated;
+    const user = isAuthenticated
+      ? { name: "Dummy Name", email: "dummy@email.com" }
+      : {};
+    dispatch({
+      type: ACTIONS.SET_USER,
+      payload: user,
+    });
+    dispatch({
+      type: ACTIONS.SET_AUTHENTICATED,
+      payload: isAuthenticated,
     });
   };
 
